@@ -4,9 +4,13 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 
 
+
+
 app.use(require("./controllers/controller"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(express.static("public"));
 
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/workout", //workout needs to be built in mongo atlas
